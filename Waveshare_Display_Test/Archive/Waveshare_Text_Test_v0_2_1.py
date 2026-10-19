@@ -7,7 +7,7 @@ import os
 from Waveshare_Text import WaveshareText
 
 # The bitmap must be in the same directory as this test program.
-BITMAP = os.path.join(os.path.dirname(os.path.abspath(__file__)), "Waveshare_Text_preview.bmp")
+BITMAP = os.path.join(os.path.dirname(os.path.abspath(__file__)), "Pico_2in7.bmp")
 
 
 def main():
