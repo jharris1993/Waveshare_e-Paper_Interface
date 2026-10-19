@@ -7,12 +7,24 @@ import os
 import sys
 import select
 import time
-
 from PIL import Image, ImageDraw, ImageFont
+from pathlib import Path
 
+FONT_SIZE = 12       # Pixel size
+LINE_SPACING = 2     # Additional pixels between successive text rows
+ORIGIN_X = 0         # Horizontal text origin in pixels; negatives allowed
+ORIGIN_Y = 0         # Vertical text origin in pixels; negatives allowed
+ORIENTATION = 0      # Initial clockwise rotation: 0, 90, 180, or 270 degrees
+sleep_timer = 0      # Seconds between alternating 180-degree orientations
+COLUMNS = 250
+ROWS = 100
+ALPHABET = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz"
 
+# Font list.  These fonts should be available in typical Linux systems.
+#
 # Select ONE font by uncommenting its assignment and commenting the others.
-# Availability depends on the fonts installed on the Raspberry Pi.
+# Availability depends on the fonts installed on your system.
+#
 FONT = "/usr/share/fonts/truetype/dejavu/DejaVuSansMono.ttf"
 # FONT = "/usr/share/fonts/truetype/dejavu/DejaVuSansMono-Bold.ttf"
 # FONT = "/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf"
@@ -24,20 +36,17 @@ FONT = "/usr/share/fonts/truetype/dejavu/DejaVuSansMono.ttf"
 # FONT = "/usr/share/fonts/truetype/liberation2/LiberationSerif-Regular.ttf"
 # FONT = "/usr/share/fonts/truetype/nimbus/NimbusRoman-Regular.otf"
 
-FONT_SIZE = 12       # Pixel size
-LINE_SPACING = 2     # Additional pixels between successive text rows
-ORIGIN_X = 0         # Horizontal text origin in pixels; negatives allowed
-ORIGIN_Y = 0         # Vertical text origin in pixels; negatives allowed
-ORIENTATION = 0      # Initial clockwise rotation: 0, 90, 180, or 270 degrees
-sleep_timer = 0      # Seconds between alternating 180-degree orientations
+# Removed absolute library path reference
+# WAVESHARE_LIB = "/home/pi/Project_Files/External_Display_Software/e-Paper/RaspberryPi_JetsonNano/python/lib"
 
-COLUMNS = 250
-ROWS = 100
-ALPHABET = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz"
-WAVESHARE_LIB = (
-    "/home/pi/Project_Files/External_Display_Software/e-Paper/"
-    "RaspberryPi_JetsonNano/python/lib"
-)
+# Locate the project root by finding its Waveshare_Base directory.
+SCRIPT_DIR = Path(__file__).resolve().parent
+PROJECT_ROOT = next((directory for directory in (SCRIPT_DIR, *SCRIPT_DIR.parents) if (directory / "Waveshare_Base" / "lib").is_dir()), None)
+if PROJECT_ROOT is None:
+    raise FileNotFoundError("Cannot locate the Waveshare project bundle")
+WAVESHARE_LIB = str(PROJECT_ROOT / "Waveshare_Base" / "lib")
+
+
 
 
 def make_row(row_number):

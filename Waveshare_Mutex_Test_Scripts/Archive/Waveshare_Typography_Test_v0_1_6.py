@@ -9,6 +9,7 @@ import select
 import time
 
 from PIL import Image, ImageDraw, ImageFont
+from pathlib import Path
 
 FONT_SIZE = 10       # Pixel size
 LINE_SPACING = 0     # Additional pixels between successive text rows
@@ -16,6 +17,9 @@ ORIGIN_X = 0         # Horizontal text origin in pixels; negatives allowed
 ORIGIN_Y = 0         # Vertical text origin in pixels; negatives allowed
 ORIENTATION = 0      # Initial clockwise rotation: 0, 90, 180, or 270 degrees
 sleep_timer = 0      # Seconds between alternating 180-degree orientations
+COLUMNS = 250
+ROWS = 100
+ALPHABET = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz"
 
 # Select ONE font by uncommenting its assignment and commenting the others.
 # Availability depends on the fonts installed on the Raspberry Pi.
@@ -30,14 +34,15 @@ FONT = "/usr/share/fonts/truetype/dejavu/DejaVuSansMono.ttf"
 # FONT = "/usr/share/fonts/truetype/liberation2/LiberationSerif-Regular.ttf"
 # FONT = "/usr/share/fonts/truetype/nimbus/NimbusRoman-Regular.otf"
 
-COLUMNS = 250
-ROWS = 100
-ALPHABET = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz"
-WAVESHARE_LIB = (
-    "/home/pi/Project_Files/External_Display_Software/e-Paper/"
-    "RaspberryPi_JetsonNano/python/lib"
-)
+# Removed absolute library path reference
+# WAVESHARE_LIB = "/home/pi/Project_Files/External_Display_Software/e-Paper/RaspberryPi_JetsonNano/python/lib"
 
+# Locate the project root by finding its Waveshare_Base directory.
+SCRIPT_DIR = Path(__file__).resolve().parent
+PROJECT_ROOT = next((directory for directory in (SCRIPT_DIR, *SCRIPT_DIR.parents) if (directory / "Waveshare_Base" / "lib").is_dir()), None)
+if PROJECT_ROOT is None:
+    raise FileNotFoundError("Cannot locate the Waveshare project bundle")
+WAVESHARE_LIB = str(PROJECT_ROOT / "Waveshare_Base" / "lib")
 
 def make_row(row_number):
     """Return a row of exactly COLUMNS characters (row numbers start at 1)."""

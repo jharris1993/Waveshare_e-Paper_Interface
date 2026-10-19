@@ -6,6 +6,7 @@
 import os
 import sys
 from PIL import Image, ImageDraw, ImageFont
+from pathlib import Path
 
 # Pre-defined system constants. Adjust as necessary.
 FONT_SIZE = 10       # Pixel size
@@ -16,9 +17,16 @@ ORIENTATION = 180    # Clockwise rotation: 0, 90, 180, or 270 degrees
 COLUMNS = 250
 ROWS = 100
 ALPHABET = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz"
-WAVESHARE_LIB = (
-    "/home/pi/Project_Files/External_Display_Software/e-Paper/RaspberryPi_JetsonNano/python/lib"
-)
+
+# Removed absolute library path reference
+# WAVESHARE_LIB = "/home/pi/Project_Files/External_Display_Software/e-Paper/RaspberryPi_JetsonNano/python/lib"
+
+# Locate the project root by finding its Waveshare_Base directory.
+SCRIPT_DIR = Path(__file__).resolve().parent
+PROJECT_ROOT = next((directory for directory in (SCRIPT_DIR, *SCRIPT_DIR.parents) if (directory / "Waveshare_Base" / "lib").is_dir()), None)
+if PROJECT_ROOT is None:
+    raise FileNotFoundError("Cannot locate the Waveshare project bundle")
+WAVESHARE_LIB = str(PROJECT_ROOT / "Waveshare_Base" / "lib")
 
 # Font list.  These fonts should be available in typical Linux systems.
 #

@@ -6,6 +6,7 @@
 import importlib.util
 import os
 import sys
+from pathlib import Path
 
 # Test settings: change these without modifying the display library.
 PREVIEW_FILE = "2in71.bmp"   # .bmp or UTF-8 .txt
@@ -18,15 +19,23 @@ ORIGIN_X = 0
 ORIGIN_Y = 0
 ERROR_LOG = 0    # 0 = stderr only; 1 = also write timestamped error log
 
-SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
-LIBRARY_FILE = os.path.join(SCRIPT_DIR, "Waveshare_Text_v0_2_3.py")
+# Removed absolute library path reference
+# WAVESHARE_LIB = "/home/pi/Project_Files/External_Display_Software/e-Paper/RaspberryPi_JetsonNano/python/lib"
+
+# Locate the project root by finding its Waveshare_Base directory.
+SCRIPT_DIR = Path(__file__).resolve().parent
+PROJECT_ROOT = next((directory for directory in (SCRIPT_DIR, *SCRIPT_DIR.parents) if (directory / "Waveshare_Base" / "lib").is_dir()), None)
+if PROJECT_ROOT is None:
+    raise FileNotFoundError("Cannot locate the Waveshare project bundle")
+WAVESHARE_LIB = str(PROJECT_ROOT / "Waveshare_Base" / "lib")
+LIBRARY_FILE = os.path.join(WAVESHARE_LIB, "Waveshare_Text_v0_2_3.py")
 
 # Font list.  These fonts should be available in typical Linux systems.
 #
 # Select ONE font by uncommenting its assignment and commenting the others.
 # Availability depends on the fonts installed on your system.
 #
-# FONT_FILE = "/usr/share/fonts/truetype/dejavu/DejaVuSansMono.ttf"
+FONT_FILE = "/usr/share/fonts/truetype/dejavu/DejaVuSansMono.ttf"
 # FONT_FILE = "/usr/share/fonts/truetype/dejavu/DejaVuSansMono-Bold.ttf"
 # FONT_FILE = "/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf"
 # FONT_FILE = "/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf"
@@ -35,7 +44,7 @@ LIBRARY_FILE = os.path.join(SCRIPT_DIR, "Waveshare_Text_v0_2_3.py")
 # FONT_FILE = "/usr/share/fonts/truetype/liberation/LiberationSerif-Regular.ttf"
 # FONT_FILE = "/usr/share/fonts/truetype/liberation/LiberationSerif-Bold.ttf"
 # FONT_FILE = "/usr/share/fonts/truetype/liberation2/LiberationSerif-Regular.ttf"
-FONT_FILE = "/usr/share/fonts/truetype/nimbus/NimbusRoman-Regular.otf"
+# FONT_FILE = "/usr/share/fonts/truetype/nimbus/NimbusRoman-Regular.otf"
 
 
 def load_library():
