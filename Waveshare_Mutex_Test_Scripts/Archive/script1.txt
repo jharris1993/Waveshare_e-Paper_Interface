@@ -1,0 +1,101 @@
+===== Archive identification =====
+/home/pi/.local/lib/python3.7/site-packages/gopigo3-1.3.2.1-py3.7.egg: Zip archive data, at least v2.0 to extract
+===== Archive integrity =====
+Archive:  /home/pi/.local/lib/python3.7/site-packages/gopigo3-1.3.2.1-py3.7.egg
+    testing: easygopigo3.py           OK
+    testing: easysensors.py           OK
+    testing: gopigo3.py               OK
+    testing: EGG-INFO/PKG-INFO        OK
+    testing: EGG-INFO/SOURCES.txt     OK
+    testing: EGG-INFO/dependency_links.txt   OK
+    testing: EGG-INFO/requires.txt    OK
+    testing: EGG-INFO/top_level.txt   OK
+    testing: EGG-INFO/zip-safe        OK
+    testing: Examples/Grove.py        OK
+    testing: Examples/Grove_Buzzer.py   OK
+    testing: Examples/Grove_I2C.py    OK
+    testing: Examples/Grove_IR.py     OK
+    testing: Examples/Grove_LED.py    OK
+    testing: Examples/Grove_Light_Sensor.py   OK
+    testing: Examples/Grove_US.py     OK
+    testing: Examples/Grove_US2.py    OK
+    testing: Examples/LED.py          OK
+    testing: Examples/Motor.py        OK
+    testing: Examples/Motor_Encoder.py   OK
+    testing: Examples/Motor_Follow.py   OK
+    testing: Examples/Motor_Position.py   OK
+    testing: Examples/Motor_Speed.py   OK
+    testing: Examples/Motor_Turn.py   OK
+    testing: Examples/Read_Info.py    OK
+    testing: Examples/Remote_Control.py   OK
+    testing: Examples/Servo.py        OK
+    testing: Examples/__init__.py     OK
+    testing: Examples/easy_Blinkers.py   OK
+    testing: Examples/easy_Button.py   OK
+    testing: Examples/easy_Buzzer.py   OK
+    testing: Examples/easy_DexEyes.py   OK
+    testing: Examples/easy_Distance_Sensor.py   OK
+    testing: Examples/easy_LED.py     OK
+    testing: Examples/easy_Light_Sensor.py   OK
+    testing: Examples/easy_Motors.py   OK
+    testing: Examples/gps_reading.py   OK
+    testing: Examples/Control_Panel/__init__.py   OK
+    testing: Examples/Control_Panel/control_panel_gui_3.py   OK
+    testing: Examples/Control_Panel/__pycache__/__init__.cpython-37.pyc   OK
+    testing: Examples/Control_Panel/__pycache__/control_panel_gui_3.cpython-37.pyc   OK
+    testing: Examples/__pycache__/Grove.cpython-37.pyc   OK
+    testing: Examples/__pycache__/Grove_Buzzer.cpython-37.pyc   OK
+    testing: Examples/__pycache__/Grove_I2C.cpython-37.pyc   OK
+    testing: Examples/__pycache__/Grove_IR.cpython-37.pyc   OK
+    testing: Examples/__pycache__/Grove_LED.cpython-37.pyc   OK
+    testing: Examples/__pycache__/Grove_Light_Sensor.cpython-37.pyc   OK
+    testing: Examples/__pycache__/Grove_US.cpython-37.pyc   OK
+    testing: Examples/__pycache__/Grove_US2.cpython-37.pyc   OK
+    testing: Examples/__pycache__/LED.cpython-37.pyc   OK
+    testing: Examples/__pycache__/Motor.cpython-37.pyc   OK
+    testing: Examples/__pycache__/Motor_Encoder.cpython-37.pyc   OK
+    testing: Examples/__pycache__/Motor_Follow.cpython-37.pyc   OK
+    testing: Examples/__pycache__/Motor_Position.cpython-37.pyc   OK
+    testing: Examples/__pycache__/Motor_Speed.cpython-37.pyc   OK
+    testing: Examples/__pycache__/Motor_Turn.cpython-37.pyc   OK
+    testing: Examples/__pycache__/Read_Info.cpython-37.pyc   OK
+    testing: Examples/__pycache__/Remote_Control.cpython-37.pyc   OK
+    testing: Examples/__pycache__/Servo.cpython-37.pyc   OK
+    testing: Examples/__pycache__/__init__.cpython-37.pyc   OK
+    testing: Examples/__pycache__/easy_Blinkers.cpython-37.pyc   OK
+    testing: Examples/__pycache__/easy_Button.cpython-37.pyc   OK
+    testing: Examples/__pycache__/easy_Buzzer.cpython-37.pyc   OK
+    testing: Examples/__pycache__/easy_DexEyes.cpython-37.pyc   OK
+    testing: Examples/__pycache__/easy_Distance_Sensor.cpython-37.pyc   OK
+    testing: Examples/__pycache__/easy_LED.cpython-37.pyc   OK
+    testing: Examples/__pycache__/easy_Light_Sensor.cpython-37.pyc   OK
+    testing: Examples/__pycache__/easy_Motors.cpython-37.pyc   OK
+    testing: Examples/__pycache__/gps_reading.cpython-37.pyc   OK
+    testing: __pycache__/easygopigo3.cpython-37.pyc   OK
+    testing: __pycache__/easysensors.cpython-37.pyc   OK
+    testing: __pycache__/gopigo3.cpython-37.pyc   OK
+    testing: mock_package/__init__.py   OK
+    testing: mock_package/distance_sensor.py   OK
+    testing: mock_package/__pycache__/__init__.cpython-37.pyc   OK
+    testing: mock_package/__pycache__/distance_sensor.cpython-37.pyc   OK
+No errors detected in compressed data of /home/pi/.local/lib/python3.7/site-packages/gopigo3-1.3.2.1-py3.7.egg.
+===== Library contents =====
+===== Backup original egg =====
+'/home/pi/.local/lib/python3.7/site-packages/gopigo3-1.3.2.1-py3.7.egg' -> '/home/pi/.local/lib/python3.7/site-packages/gopigo3-1.3.2.1-py3.7.egg.original'
+===== SHA256 checksums =====
+915005283db8e1f056fba7f80e3e528a167ca1be140b5043fcfe70ae0266d066  /home/pi/.local/lib/python3.7/site-packages/gopigo3-1.3.2.1-py3.7.egg
+915005283db8e1f056fba7f80e3e528a167ca1be140b5043fcfe70ae0266d066  /home/pi/.local/lib/python3.7/site-packages/gopigo3-1.3.2.1-py3.7.egg.original
+===== SPI transfer implementation =====
+    def spi_transfer_array(self, data_out):
+        """
+        Conduct a SPI transaction
+
+        Keyword arguments:
+        data_out -- a list of bytes to send. The length of the list will determine how many bytes are transferred.
+
+        Returns a list of the bytes read.
+        """
+        result = GPG_SPI.xfer2(data_out)
+        return result
+
+    def spi_read_8(self, MessageType):

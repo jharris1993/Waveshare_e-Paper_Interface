@@ -1,0 +1,11 @@
+===== Back up Waveshare drivers =====
+'/home/pi/Project_Files/External_Display_Software/e-Paper/RaspberryPi_JetsonNano/python/lib/waveshare_epd/epd2in7.py' -> '/home/pi/Project_Files/External_Display_Software/e-Paper/RaspberryPi_JetsonNano/python/lib/waveshare_epd/epd2in7.py.original'
+'/home/pi/Project_Files/External_Display_Software/e-Paper/RaspberryPi_JetsonNano/python/lib/waveshare_epd/epdconfig.py' -> '/home/pi/Project_Files/External_Display_Software/e-Paper/RaspberryPi_JetsonNano/python/lib/waveshare_epd/epdconfig.py.original'
+===== Verify backups =====
+cd7b83cd5f2ab675fef4b17790cdfbb6170391078e6c15e3cdbe52a81129099a  /home/pi/Project_Files/External_Display_Software/e-Paper/RaspberryPi_JetsonNano/python/lib/waveshare_epd/epd2in7.py
+cd7b83cd5f2ab675fef4b17790cdfbb6170391078e6c15e3cdbe52a81129099a  /home/pi/Project_Files/External_Display_Software/e-Paper/RaspberryPi_JetsonNano/python/lib/waveshare_epd/epd2in7.py.original
+3b89030530736f7deb97ee2a3afe01d7e78ec8150b1291338428ff47e5fa0281  /home/pi/Project_Files/External_Display_Software/e-Paper/RaspberryPi_JetsonNano/python/lib/waveshare_epd/epdconfig.py
+3b89030530736f7deb97ee2a3afe01d7e78ec8150b1291338428ff47e5fa0281  /home/pi/Project_Files/External_Display_Software/e-Paper/RaspberryPi_JetsonNano/python/lib/waveshare_epd/epdconfig.py.original
+===== Verify imports from project directory =====
+/home/pi/Project_Files/External_Display_Software/e-Paper/RaspberryPi_JetsonNano/python/lib/waveshare_epd/epd2in7.py
+/home/pi/Project_Files/External_Display_Software/e-Paper/RaspberryPi_JetsonNano/python/lib/waveshare_epd/epdconfig.py
